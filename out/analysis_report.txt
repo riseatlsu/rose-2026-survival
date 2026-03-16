@@ -1,0 +1,41 @@
+ANALISE DO DATASET
+============================================================
+
+Total repos: 807
+
+--- VALORES FALTANTES ---
+first_activity_date: 0
+last_activity_date: 0
+days_since_last_activity: 0
+event_dead: 0
+
+--- ESTATISTICAS ---
+days_since_last_activity: min=3, max=2739, mean=281
+time_to_event_days: min=0, max=5647, mean=1996
+
+--- DISTRIBUICAO ---
+Mortos (event=1): 177
+Vivos (event=0): 630
+Taxa morte: 21.9%
+
+--- VERIFICACOES ---
+Tempos negativos: 0
+
+--- AMOSTRA MORTOS ---
+  stonier/ecl_core: 691 dias inativo
+  swri-robotics/marti_messages: 453 dias inativo
+  MOCAP4ROS2-Project/mocap4r2: 646 dias inativo
+  astuff/astuff_sensor_msgs: 1047 dias inativo
+  stonier/ecl_lite: 1257 dias inativo
+
+--- AMOSTRA VIVOS ---
+  autowarefoundation/autoware_core: 3 dias inativo
+  ros-navigation/navigation2: 3 dias inativo
+  moveit/moveit2: 40 dias inativo
+  ika-rwth-aachen/etsi_its_messages: 51 dias inativo
+  ament/ament_lint: 17 dias inativo
+
+--- POR OWNER TYPE ---
+Organization: 713 repos, 142 mortos (19.9%)
+User: 92 repos, 35 mortos (38.0%)
+nan: 0 repos, 0 mortos (nan%)

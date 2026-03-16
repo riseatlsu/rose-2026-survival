@@ -1,0 +1,9 @@
+Feature,HR,CI_lo,CI_hi,p-value,Significant
+Commits/month,0.5288,0.047,1.5029,0.4964,False
+Newcomers/month,0.3094,0.095,0.9253,0.0404,True
+Forks/month,0.0157,0.0002,0.1657,0.0255,True
+Has README,1.4418,0.9842,2.3169,0.0916,False
+Has CONTRIBUTING,0.8966,0.6734,1.2343,0.4757,False
+Has PR Template,1.5413,0.0954,3.2452,0.5914,False
+Has Newcomer Labels,4.9789,3.694,7.5729,0.0,True
+Is Organization,0.501,0.335,0.7169,0.0005,True

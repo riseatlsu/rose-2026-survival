@@ -1,0 +1,9 @@
+Feature,Importance (mean),Importance (std),C-index (test)
+Forks/month,0.098963,0.030444,0.808
+Has Newcomer Labels,0.073426,0.019334,0.808
+Newcomers/month,0.061974,0.02211,0.808
+Is Organization,0.018591,0.00789,0.808
+Commits/month,0.012519,0.009556,0.808
+Has README,0.002343,0.006252,0.808
+Has PR Template,0.000761,0.00138,0.808
+Has CONTRIBUTING,0.000179,0.000866,0.808

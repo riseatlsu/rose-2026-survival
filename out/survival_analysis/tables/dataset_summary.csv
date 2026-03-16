@@ -1,0 +1,21 @@
+Metric,Value
+Total Repositories,810.0
+Dead (event=1),226.0
+Alive/Censored (event=0),584.0
+Death Rate (%),27.9
+Median Time to Event (months),55.4
+Mean Time to Event (months),67.2
+Max Time to Event (months),185.5
+Organizations,715.0
+Users,95.0
+Community Tier 1 (≤ Q1),248.0
+Community Tier 2 (Q1–Q3),363.0
+Community Tier 3 (> Q3),199.0
+Q1 contributors,3.0
+Q3 contributors,18.0
+Has README,702.0
+Has CONTRIBUTING,307.0
+Has Code of Conduct,24.0
+Has PR Template,49.0
+Has Issue Template,10.0
+Has Newcomer Labels,609.0

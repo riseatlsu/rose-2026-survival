@@ -1,0 +1,9 @@
+Factor,Column,Groups,N Groups,Chi-squared,P-value,Significant (p<0.05)
+Owner Type (Org vs User),owner_type,"['Organization', 'User']",2,40.2384,0.0,True
+Community Tier (1/2/3),community_tier,"['Tier 1', 'Tier 2', 'Tier 3']",3,292.5875,0.0,True
+Has README,has_readme_bin,"[0, 1]",2,2.7507,0.0972,False
+Has CONTRIBUTING,has_contributing_bin,"[0, 1]",2,1.9252,0.1653,False
+Has Code of Conduct,has_code_of_conduct_bin,"[0, 1]",2,2.9681,0.0849,False
+Has PR Template,has_pr_template_bin,"[0, 1]",2,5.9971,0.0143,True
+Has Issue Template,has_issue_template_bin,"[0, 1]",2,2.3111,0.1285,False
+Has Newcomer Labels,has_newcomer_labels_bin,"[0, 1]",2,68.6302,0.0,True

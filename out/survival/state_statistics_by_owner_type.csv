@@ -1,0 +1,7 @@
+owner_type,state,avg_duration_months,total_occurrences,total_months
+Organization,Running,3.06,8293,25363
+Organization,Zombie,1.61,5425,8716
+Organization,Dead,3.48,7873,27367
+User,Running,2.47,656,1619
+User,Zombie,1.37,420,574
+User,Dead,5.15,643,3310

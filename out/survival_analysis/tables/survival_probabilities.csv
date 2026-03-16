@@ -1,0 +1,7 @@
+Group,Subgroup,N,Dead,S(12m),S(24m),S(36m),S(48m),S(60m)
+Overall,All,810,226,0.938,0.904,0.861,0.818,0.771
+Owner Type,Organization,715,181,0.951,0.922,0.883,0.844,0.8
+Owner Type,User,95,45,0.842,0.767,0.683,0.606,0.541
+Community Tier,Tier 1,248,118,0.812,0.734,0.645,0.507,0.404
+Community Tier,Tier 2,363,101,0.989,0.965,0.918,0.888,0.827
+Community Tier,Tier 3,199,7,1.0,0.995,0.995,0.995,0.995

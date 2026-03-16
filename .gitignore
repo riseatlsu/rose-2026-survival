@@ -1,0 +1,50 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+eggs/
+*.egg
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Environment variables
+.env
+.env.local
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+
+# Data (large files)
+scripts/data/ros_robotics_data/
+backup/data/ros_robotics_data/
+backup/data/author_type_cache.json
+scripts/data/author_type_cache.json
+cache/
+
+# Output files (regeneratable)
+# out/
+
+# Temporary files
+*.tmp
+*.temp
+*.log

@@ -1,0 +1,15 @@
+Factor,Group,N,Dead,Death Rate (%)
+Total,All,810,226,27.9
+Owner Type,Organization,715,181,25.3
+Owner Type,User,95,45,47.4
+Community Tier,Tier 1,248,118,47.6
+Community Tier,Tier 2,363,101,27.8
+Community Tier,Tier 3,199,7,3.5
+Has README,Yes,702,200,28.5
+Has README,No,108,26,24.1
+Has CONTRIBUTING,Yes,307,75,24.4
+Has CONTRIBUTING,No,503,151,30.0
+Has Code of Conduct,Yes,24,1,4.2
+Has Code of Conduct,No,786,225,28.6
+Has Newcomer Labels,Yes,609,181,29.7
+Has Newcomer Labels,No,201,45,22.4

@@ -1,0 +1,7 @@
+author_type,state,avg_duration_months,total_occurrences,total_months
+Bot,Running,2.46,498,1226
+Bot,Zombie,1.58,789,1250
+Bot,Dead,35.56,1813,64473
+Human,Running,3.02,8949,26982
+Human,Zombie,1.59,5746,9157
+Human,Dead,3.64,8465,30810

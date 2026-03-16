@@ -1,0 +1,10 @@
+from_state,to_state,count,probability_pct
+Running,Running,18033,66.86
+Running,Dead,5825,21.6
+Running,Zombie,3113,11.54
+Zombie,Running,3019,32.98
+Zombie,Zombie,3445,37.63
+Zombie,Dead,2691,29.39
+Dead,Running,5129,17.09
+Dead,Dead,22161,73.84
+Dead,Zombie,2724,9.08

@@ -1,0 +1,5 @@
+distribution,total_packages,packages_on_github,not_on_github,github_percentage,unique_repositories,repos_after_exclusion
+humble,2328,2074,254,89.1%,778,388
+jazzy,2104,1890,214,89.8%,711,376
+kilted,1810,1636,174,90.4%,621,330
+TOTAL,6242,5600,642,89.7%,2110,466

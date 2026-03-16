@@ -1,0 +1,26 @@
+======================================================================
+EXCLUSION CRITERIA STATISTICS
+======================================================================
+
+Total repositories in input:      874
+Included repositories:            810 (92.7%)
+Excluded repositories:            64 (7.3%)
+
+EXCLUSION BREAKDOWN (by criterion):
+----------------------------------------------------------------------
+  is_fork.................................    25 (  2.9%)
+  created_recently_6mo....................    24 (  2.7%)
+  no_programming_languages................    15 (  1.7%)
+  archived................................     4 (  0.5%)
+
+NOTES:
+----------------------------------------------------------------------
+  - created_recently_6mo: Repository created in last 6 months
+  - archived: Repository marked as archived on GitHub
+  - is_fork: Repository is a fork of another repository
+  - no_programming_languages: No detected programming languages
+  - too_small: Repository size < 1 KB
+  - content_only: Appears to be documentation/content repository
+
+Note: A repository can be excluded for multiple reasons.
+======================================================================

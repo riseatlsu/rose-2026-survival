@@ -1,0 +1,6 @@
+distribution,repos_in_distro,repos_exclusive_to_distro,packages_in_distro
+humble,690,125,1848
+jazzy,637,19,1687
+kilted,557,6,1454
+multi_distro_repos,619,0,0
+TOTAL,807,150,2104
