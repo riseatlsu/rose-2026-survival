@@ -42,7 +42,11 @@ scripts/data/author_type_cache.json
 cache/
 
 # Output files (regeneratable)
-# out/
+out/
+
+# Top-level PDFs and local backup folder
+*.pdf
+backup/
 
 # Temporary files
 *.tmp
