@@ -5,9 +5,9 @@ Re-fetches commits.json for repositories where data=[] (empty fetch).
 Automatically detects all such repos — currently only introlab/rtabmap.
 
 After re-fetching, run:
-  python3 scripts/09b_update_author_types.py   (to enrich with author_type)
-  python3 scripts/15_build_event_tables.py      (to rebuild event CSVs)
-  python3 scripts/16_build_state_machine_claude.py
+    python3 scripts/09b_update_author_types.py   (to enrich with author_type)
+    python3 scripts/15_build_event_tables.py     (to rebuild event CSVs)
+    python3 scripts/16_build_state_machine.py    (to rebuild state-machine tables)
 """
 
 import os
@@ -191,7 +191,7 @@ def main():
     print("\nDone. Next steps:")
     print("  python3 scripts/09b_update_author_types.py")
     print("  python3 scripts/15_build_event_tables.py")
-    print("  python3 scripts/16_build_state_machine_claude.py")
+    print("  python3 scripts/16_build_state_machine.py")
 
 
 if __name__ == "__main__":

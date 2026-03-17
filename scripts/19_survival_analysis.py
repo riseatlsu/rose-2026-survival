@@ -56,14 +56,13 @@ OUT_DIR      = PROJECT_ROOT / "out" / "survival_analysis"
 TABLES_DIR   = OUT_DIR / "tables"
 PLOTS_DIR    = OUT_DIR / "plots" / "paper"
 
-STUDY_END_DATE      = datetime(2026, 3, 8)  # must match 18_prepare_survival_dataset.py
-DEAD_THRESHOLD_DAYS = 180                   # 6 months — matches Ait et al. (2022)
+STUDY_END_DATE      = datetime(2026, 3, 8) 
+DEAD_THRESHOLD_DAYS = 180                   
 TIMEPOINTS_MONTHS   = [12, 24, 36, 48, 60]
 RANDOM_STATE        = 42
 ALPHA               = 0.05
 TEST_SIZE           = 0.25  # shared train/test split ratio for Cox and RSF
 
-# Colorblind-friendly palette
 COLORS = {
     "Tier 1":  "#d62728",
     "Tier 2":  "#2ca02c",
@@ -94,8 +93,6 @@ plt.rcParams.update({
 # =========================
 def load_data():
     df = pd.read_csv(INPUT_FILE)
-
-    # Re-apply death threshold consistently with DEAD_THRESHOLD_DAYS config
     df["days_since_last_activity"] = pd.to_numeric(df["days_since_last_activity"], errors="coerce")
     df["event_dead"] = (df["days_since_last_activity"] > DEAD_THRESHOLD_DAYS).astype(int)
 
@@ -136,19 +133,12 @@ def load_data():
     df["has_issue_template_bin"]   = to_bool_int("has_issue_template")
     df["has_newcomer_labels_bin"]  = to_bool_int("has_newcomer_labels")
 
-    # Activity RATES (per month) — avoid reverse-causality bias.
-    # Raw cumulative counts are inflated by lifespan; rates capture intensity
-    # independent of how long the project has been observed (Robinson et al., 2017).
-    # Using RAW values (no log transformation) for correct HR interpretation in Cox PH.
     df["commits_per_month"]   = df["Average number of commits per month"].fillna(0)
     df["newcomers_per_month"] = df["Average number of newcomers per month"].fillna(0)
     df["forks_per_month"]     = df["Average number of forks per month"].fillna(0)
     df["contributors_count"]  = df["contributors_count"].fillna(0)
 
-    # Stars excluded: high collinearity with forks (r≈0.78); forks capture active
-    # engagement (someone cloned to modify) while stars are passive popularity signal
-    # — forks is more informative for software repo survival.
-
+    # Stars excluded: high collinearity with forks (r≈0.78);    
     n = len(df)
     n_dead = int(df["event_dead"].sum())
     print(f"Dataset: {n} repos | Dead: {n_dead} ({100*n_dead/n:.1f}%) | "
@@ -313,10 +303,8 @@ COX_BINARY_FEATURES = [
 ]
 # Activity rates to capture project engagement independent of lifespan.
 # contributors_count EXCLUDED to avoid confounding with newcomers_per_month
-# (both capture community size; including both inverts interpretation).
 # stars_per_month excluded: high collinearity with forks (r=0.86).
-# Using RAW values (no log transformation) for interpretable hazard ratios.
-# Pipeline applies median imputation + StandardScaler only.
+# Pipeline applies median imputation + StandardScaler
 COX_NUMERIC_FEATURES = [
     "commits_per_month",
     "newcomers_per_month",
@@ -339,8 +327,7 @@ COX_FEATURE_LABELS = {
 def fit_cox(df):
     """Fit L2-regularized Cox PH model.
     Trains on 75%, evaluates on stratified 25% held-out test set.
-    Permutation importance computed on test set to avoid in-sample bias.
-    Uses RAW values (no log transformation) for interpretable hazard ratios."""
+    Permutation importance computed on test set to avoid in-sample bias."""
     print("\n--- Cox PH Model (train/test split) ---")
 
     binary       = [f for f in COX_BINARY_FEATURES  if f in df.columns]
@@ -361,8 +348,6 @@ def fit_cox(df):
     print(f"  Train: {len(X_train)} ({int(y_train['event'].sum())} events) | "
           f"Test: {len(X_test)} ({int(y_test['event'].sum())} events)")
 
-    # Preprocessing: median imputation + standardization ONLY (no log transformation)
-    # This preserves interpretability: HR represents effect per 1-SD change in raw units
     preprocessor = ColumnTransformer([
         ("num", Pipeline([
             ("imputer", SimpleImputer(strategy="median")),
@@ -433,7 +418,6 @@ def fit_cox(df):
     ax.tick_params(axis='both', labelsize=15)
     ax.axvline(0, color="gray", ls="--", lw=1)
     ax.grid(True, axis="x", alpha=0.3)
-    # Fechar o box - mostrar todos os spines
     ax.spines['top'].set_visible(True)
     ax.spines['right'].set_visible(True)
     ax.spines['bottom'].set_visible(True)
@@ -453,7 +437,6 @@ def fit_cox(df):
 
 N_BOOT_HR = 500  # bootstrap resamples for HR confidence intervals
 
-
 def plot_hazard_ratios(df, c_index_test):
     """Publication forest plot — one row per feature, sorted by HR.
     Uses sksurv CoxPHSurvivalAnalysis fitted on the full dataset.
@@ -465,7 +448,7 @@ def plot_hazard_ratios(df, c_index_test):
     PROT  = "#2166ac"
     RISK  = "#c0392b"
     GRAY  = "#888888"
-    FS    = 10   # base font size
+    FS    = 10
 
     numeric  = [f for f in COX_NUMERIC_FEATURES if f in df.columns]
     binary   = [f for f in COX_BINARY_FEATURES  if f in df.columns]
@@ -510,7 +493,6 @@ def plot_hazard_ratios(df, c_index_test):
     z_scores   = np.where(boot_se > 0, coefs_full / boot_se, np.nan)
     pvals      = 2 * (1 - _norm.cdf(np.abs(z_scores)))
 
-    # ── build one row per feature ─────────────────────────────────
     records = []
     for j, col in enumerate(features):
         label  = COX_FEATURE_LABELS.get(col, col)
@@ -539,7 +521,6 @@ def plot_hazard_ratios(df, c_index_test):
     records.sort(key=lambda r: r["hr"])
     n = len(records)
 
-    # ── layout ────────────────────────────────────────────────────
     fig, (ax_L, ax_R) = plt.subplots(
         1, 2, figsize=(12, max(5, n * 0.52 + 1.6)),
         gridspec_kw={"width_ratios": [1.7, 1.0], "wspace": 0.02}
@@ -638,10 +619,7 @@ def plot_hazard_ratios(df, c_index_test):
 # 4. RANDOM SURVIVAL FOREST
 # =========================
 def run_rsf(df):
-    """RSF with stratified train/test split.
-    Rate features: commits, newcomers, forks/month (stars excluded — collinear with forks).
-    Uses same features as Cox model for consistency.
-    Permutation importance on held-out test set for unbiased ranking."""
+    """RSF with stratified train/test split"""
     print("\n--- Random Survival Forest (train/test split) ---")
 
     numeric  = [f for f in COX_NUMERIC_FEATURES if f in df.columns]

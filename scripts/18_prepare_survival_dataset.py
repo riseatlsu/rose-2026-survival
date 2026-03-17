@@ -1,12 +1,12 @@
 """
 18_prepare_survival_dataset.py
 
-Prepara o dataset de sobrevivência extraindo datas dos JSONs.
+Prepare the survival dataset by extracting dates from the JSON snapshots.
 
-Para cada repositório:
-1. Extrair created_at de general_info.json
-2. Extrair última data de QUALQUER atividade (commits, issues, PRs, comments, reviews)
-3. Calcular time_to_event e event
+For each repository this script:
+1. Extracts created_at from general_info.json
+2. Extracts the last date of ANY activity (commits, issues, PRs, comments, reviews)
+3. Computes time_to_event and the event indicator.
 
 Following Ait et al. (2022): a repository is considered inactive (event=1) only if
 it shows a complete absence of ANY activity (commits, issues opened, PRs opened,
@@ -15,18 +15,18 @@ Repositories with any such activity within 180 days are active (event=0, censore
 even if the activity is non-code (issues, comments) — this corresponds to the
 "Zombie" state in Ait et al., which they classify as still Alive.
 
-Configurações:
-- DEAD_THRESHOLD_DAYS = 180 (sem QUALQUER atividade = morto)
+Configuration:
+- DEAD_THRESHOLD_DAYS = 180 (no activity of any kind = dead)
 - STUDY_END_DATE = "2026-03-08"
 
-Colunas criadas:
-- first_activity_date: data de criação do repo
-- last_commit_date: data do último commit (para state machine)
-- last_activity_date: data da última QUALQUER atividade (commits + issues + PRs + comments + reviews)
-- study_end_date: fim do estudo (2026-03-08)
-- days_since_last_activity: dias desde última atividade até fim do estudo
-- event_dead: 1 se morto (days_since_last_activity > 180), 0 se censurado
-- time_to_event_days: dias desde criação até morte ou censoring
+Created columns:
+- first_activity_date: repository creation date
+- last_commit_date: date of the last commit (for the state machine)
+- last_activity_date: date of the last ANY activity (commits + issues + PRs + comments + reviews)
+- study_end_date: end of study (2026-03-08)
+- days_since_last_activity: days between last activity and study end
+- event_dead: 1 if dead (days_since_last_activity > 180), 0 if censored
+- time_to_event_days: days from creation to death or censoring
 - time_to_event_months: time_to_event_days / 30.44
 """
 

@@ -13,10 +13,10 @@ Files re-fetched only if their current data is empty/null:
   - weekly_commit_activity.json (needed for commit stats — was [])
 
 After running this script:
-  1. python3 scripts/10_build_final_repo_dataset.py  (rebuild dataset — may include repo now)
-  2. python3 scripts/09b_update_author_types.py       (enrich new PR author_types)
-  3. python3 scripts/15_build_event_tables.py
-  4. python3 scripts/16_build_state_machine_claude.py
+    1. python3 scripts/10_build_final_repo_dataset.py  (rebuild dataset — may include repo now)
+    2. python3 scripts/09b_update_author_types.py      (enrich new PR author_types)
+    3. python3 scripts/15_build_event_tables.py
+    4. python3 scripts/16_build_state_machine.py       (rebuild state-machine tables)
 """
 
 import os
@@ -224,7 +224,7 @@ def main():
     print("  python3 scripts/10_build_final_repo_dataset.py")
     print("  python3 scripts/09b_update_author_types.py")
     print("  python3 scripts/15_build_event_tables.py")
-    print("  python3 scripts/16_build_state_machine_claude.py")
+    print("  python3 scripts/16_build_state_machine.py")
     print("=" * 60)
 
 
