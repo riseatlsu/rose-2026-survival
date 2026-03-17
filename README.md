@@ -7,15 +7,14 @@ Welcome to the replication package of the paper entitled "The Walking Packages: 
   - **12-14**: Inflow analysis and documentation metrics
   - **15-17**: Event tables and activity extraction (state machine, comments, reviews)
   - **18-21**: Survival analysis pipeline (dataset preparation, survival models, extended analysis, paper figures)
-  - [**descriptive_stats**](scripts/descriptive_stats): Descriptive statistics and visualization generation
-  - **Utility scripts**: `generate_all_commits_spreadsheet.py`, `generate_ros_packages_statistics.py`, `commit_type_classifier.py`
+  - **Utility scripts**: `generate_all_commits_spreadsheet.py`, `generate_ros_packages_statistics.py`
   - [**run_all.py**](scripts/run_all.py): Execute scripts 00-11 sequentially
 - [**out**](out): Output directory for all results
   - **survival_analysis**: Survival analysis outputs (Kaplan-Meier plots, Cox model results, feature importance)
   - **events**: Repository event tables (commits, issues, PRs, comments, reviews)
   - **repos**: Per-repository data collected from GitHub (metadata, commits, contributors, issues, community files)
-  - Key datasets: `filtered_repo_dataset.csv`, `survival_dataset_complete.csv`
-- [**tables**](scripts/tables): Summarized statistics (inflow metrics, repository overlap)
+  - Key datasets: `filtered_repo_dataset.csv`,
+- [**tables**](scripts/tables): Summarized statistics
 
 # Running the Replication Pipeline
 To replicate our data collection and survival analysis:
